@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSim 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="links">
+            <a class="active" href="index.html">Home</a>
+            <a href="overview.html">Overview</a>
+            <a href="market.html">Market</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="history.html">History</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="news.html">News</a>
+        </div>
+    </nav>
+
+    <div class="home">
+        <div class="top">
+            <h1>Home</h1>
+            <hr style="margin-top:-5px;">
+        </div>
+        <div class="content">
+            <div class="home-card status">
+                <span class="heading">Starts in</span>
+                <span class="timer">00:00:00</span>
+            </div>
+            <div class="home-card instructions">
+                <h2>Instructions</h2>
+                <hr style="margin-top:10px;">
+                <ol>
+                    <li>Use your virtual currency to buy shares of fictional companies in the Market section.</li>
+                    <li>Watch the News for updates that can affect stock prices.</li>
+                    <li>Track your investments and portfolio performance on the Portfolio page.</li>
+                    <li>Compete with others and climb the Leaderboard by making smart trades.</li>
+                    <li>The competition runs from <strong id="comp-start">--:--</strong> to <strong id="comp-end">--:--</strong>. Trade wisely!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script src="status.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

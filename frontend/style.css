@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+:root {
+    --text-grayer: #495057;
+    --text-gray: #1F2937;
+    --bg-gray: #F8F9FA;
+    --exun-blue: #2977F5;
+    --exun-blue-hover: #1e66cb;
+    --white: white;
+    --hover-gray: #d1d1d1;
+    --border-gray: #dee2e6;
+    --button-bg: #E9ECEF;
+    --green: #00b894; 
+}
+body {
+    background-color:var(--bg-gray);
+    font-family: "Inter", sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;   
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color:var(--white);
+    border-bottom: 1px solid var(--border-gray);
+    color:var(--text-gray);
+    padding:10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 4vh;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    padding-right:4vh;
+    z-index:1000;
+}
+nav .links {
+    display:flex;
+    gap:1vh;
+}
+
+nav a {
+    background-color: var(--button-bg);
+    color: var(--text-gray);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    letter-spacing: 0.5px;
+    font-weight: 520;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+nav a:hover {
+    background-color: var(--hover-gray);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+nav a.active {
+    background-color: var(--exun-blue);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 184, 148, 0.2);
+}
+nav a.active:hover {
+    background-color: var(--exun-blue-hover);
+}
+
+.status {
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.status-text {
+    margin-top:0px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.countdown {
+    margin-top: -1rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+#countdown-timer {
+    margin-top:10vh;
+    font-size: 3.2rem;
+    color: #2977F5;
+    font-weight: 500;
+}
+.instructions {
+    padding-bottom:10px;
+}
+
+.instructions h2 {
+    margin-bottom: 5px;
+    margin-top:7px;
+}
+
+.instructions ol {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.home {
+    background-color:white;
+    border-radius:12px;
+    width:95%;
+    padding: 3px 23px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin: 2vh auto;
+    padding-bottom: 25px;
+}
+.home h1 {
+    color: var(--text-gray);
+}
+hr {
+    border: none;
+    border-top: 2px solid var(--border-gray);
+}
+.home-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    color: var(--text-gray);
+    margin-top: 10px;
+    flex: 1;
+}
+.home-card h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    margin-bottom: 5px;
+    margin-top:7px;
+}
+.home .content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap:15px;
+    justify-content: center;
+}
+.heading {
+    font-size: 1.3rem;
+    font-weight: 450;
+    color: var(--text-gray);
+}
+.timer {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.chart {
+    border-radius: 12px;
+    border: 1px solid var(--border-gray);
+    margin-bottom:10px;
+}
+.cash {
+    font-size: 1.4rem;
+}
+#current-cash {
+    color: var(--exun-blue);
+    font-weight: 600;
+}
+
+
+.trade-stocks {
+    background-color:white;
+    border-radius:12px;
+    width:95%;
+    padding: 3px 23px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    margin: 2vh auto;
+    padding-bottom: 25px;
+}
+.trade-stocks .top h2 {
+    font-weight: 500;
+    color: var(--text-grayer);
+}
+.trade-stocks .top p {
+    font-weight: 550;
+    font-size: 1.2rem;
+    color: var(--text-grayer);
+}
+#net-dollar-change, #net-percent-change {
+    color: var(--green)
+}
+.search-stocks {
+    width: 20%;
+
+}
+.search-stocks input[type="text"] {
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+}
+.search-stocks input[type="text"]:focus {
+    outline: none;
+    border-color: #495057;
+}
+.stock-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 15px;
+    justify-content: center;
+}
+
+.stock-info > :first-child {
+    flex-basis: 65%;
+    max-width: 65%;
+}
+
+.stock-info > :nth-child(2) {
+    flex-basis: 35%;
+    max-width: 35%;
+}
+
+.stock-history {
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    color: var(--text-gray);
+    margin-top: 10px;
+    flex: 1;
+}
+.order-div {
+        background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    color: var(--text-gray);
+    margin-top: 10px;
+    flex: 1;
+}
