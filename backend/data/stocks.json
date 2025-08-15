@@ -2,91 +2,91 @@
   {
     "id": "APEX",
     "name": "Apex Technologies",
-    "price": 244.04216611070976,
-    "change": 3.2548482683727116
+    "price": 244.04,
+    "change": 3.25
   },
   {
     "id": "NOVA",
     "name": "Nova Energy Corp",
-    "price": 92.90678020691831,
-    "change": -0.3480004932594909
+    "price": 92.91,
+    "change": -0.35
   },
   {
     "id": "TITAN",
     "name": "Titan Industries",
-    "price": 158.96583386060394,
-    "change": 0.8807406018077586
+    "price": 158.97,
+    "change": 0.88
   },
   {
     "id": "FLUX",
     "name": "Flux Dynamics",
-    "price": 79.34974118552772,
-    "change": 0.271149582486629
+    "price": 79.35,
+    "change": 0.27
   },
   {
     "id": "ZEPH",
     "name": "Zephyr Airlines",
-    "price": 144.93457490403802,
-    "change": 2.0882660389267755
+    "price": 144.93,
+    "change": 2.09
   },
   {
     "id": "QUBE",
     "name": "Quantum Cube Ltd",
-    "price": 264.1814347218327,
-    "change": 2.272606684749178
+    "price": 264.18,
+    "change": 2.27
   },
   {
     "id": "VRTX",
     "name": "Vertex Pharmaceuticals",
-    "price": 422.1304136765996,
-    "change": -8.332508425480057
+    "price": 422.13,
+    "change": -8.33
   },
   {
     "id": "BLZE",
     "name": "Blaze Gaming Corp",
-    "price": 84.62525515877418,
-    "change": -1.576124695125884
+    "price": 84.63,
+    "change": -1.58
   },
   {
     "id": "CYPH",
     "name": "Cipher Security",
-    "price": 183.55259921001127,
-    "change": 2.5212379208356026
+    "price": 183.55,
+    "change": 2.52
   },
   {
     "id": "STRM",
     "name": "Storm Media Group",
-    "price": 101.24159748483208,
-    "change": -0.06827163834175565
+    "price": 101.24,
+    "change": -0.07
   },
   {
     "id": "ECHO",
     "name": "Echo Communications",
-    "price": 207.7494181853564,
-    "change": 2.9925495540869065
+    "price": 207.75,
+    "change": 2.99
   },
   {
     "id": "PRISM",
     "name": "Prism Optics Inc",
-    "price": 328.8749612971634,
-    "change": -1.6511627992857711
+    "price": 328.87,
+    "change": -1.65
   },
   {
     "id": "SHIFT",
     "name": "Shift Logistics",
-    "price": 164.0513275737987,
-    "change": 1.2199332158412801
+    "price": 164.05,
+    "change": 1.22
   },
   {
     "id": "NEXUS",
     "name": "Nexus Biotech",
-    "price": 278.3834385731734,
-    "change": 4.680512446563341
+    "price": 278.38,
+    "change": 4.68
   },
   {
     "id": "SURGE",
     "name": "Surge Electric Co",
-    "price": 136.53234951408098,
-    "change": 0.7425783248048674
+    "price": 136.53,
+    "change": 0.74
   }
 ]

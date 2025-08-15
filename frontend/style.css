@@ -8,8 +8,11 @@
     --white: white;
     --hover-gray: #d1d1d1;
     --border-gray: #dee2e6;
+    --table-gray: #e9ecef;
     --button-bg: #E9ECEF;
-    --green: #00b894; 
+    --green: #00b894;
+    --darker-gray: #343a40;
+    --even-row-bg: #f8f8f8;
 }
 body {
     background-color:var(--bg-gray);
@@ -36,6 +39,7 @@ nav {
     padding-right:4vh;
     z-index:1000;
 }
+
 nav .links {
     display:flex;
     gap:1vh;
@@ -167,15 +171,61 @@ hr {
 .chart {
     border-radius: 12px;
     border: 1px solid var(--border-gray);
-    margin-bottom:10px;
 }
+
 .cash {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    line-height: 1;
 }
-#current-cash {
+#total-gain, #total-percent-change, #portfolio-div, #leaderboard-position {
+    font-weight: 550;
+}
+
+.stats-text {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+.owned-stocks {
+    margin-top:15px;
+}
+
+#current-cash, #current-networth {
     color: var(--exun-blue);
-    font-weight: 600;
+    font-weight: 550;
 }
+
+#ownedStocksTable, #transactionHistoryTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    box-shadow:  0 4px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#ownedStocksTable th, #ownedStocksTable td, #transactionHistoryTable th, #transactionHistoryTable td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+#ownedStocksTable th, #transactionHistoryTable th {
+    background-color: var(--table-gray);
+    color: var(--darker-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+#ownedStocksTable td, #transactionHistoryTable td {
+    color: var(--darker-gray);
+    font-size: 1em;
+}
+
+#ownedStocksTable tr:nth-child(even), #transactionHistoryTable tr:nth-child(even) {
+    background-color: var(--even-row-bg);
+}
+
+
 
 
 .trade-stocks {
@@ -226,13 +276,13 @@ hr {
 }
 
 .stock-info > :first-child {
-    flex-basis: 65%;
-    max-width: 65%;
+    flex-basis: 67.5%;
+    max-width: 67.5%;
 }
 
 .stock-info > :nth-child(2) {
-    flex-basis: 35%;
-    max-width: 35%;
+    flex-basis: 32.5%;
+    max-width: 32.5%;
 }
 
 .stock-history {
@@ -243,7 +293,7 @@ hr {
     flex: 1;
 }
 .order-div {
-        background-color: white;
+    background-color: white;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--border-gray);
@@ -252,4 +302,120 @@ hr {
     color: var(--text-gray);
     margin-top: 10px;
     flex: 1;
+    height: 60vh;
+    position: relative;
 }
+.button-tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.buy-button, .sell-button {
+    border: none;
+    color: var(--text-grayer);
+    padding: 10px 20px;
+    font-size: 1rem;
+    width:100%;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: "Inter", sans-serif;
+}
+.buy-button, .sell-button:hover {
+    background-color: #DEE2E6;
+    color: var(--text-gray);
+}
+
+.buy-button {
+    border-radius: 8px 0 0 8px;
+}
+.sell-button {
+    border-radius: 0 8px 8px 0;
+}
+.selectede {
+    background-color: var(--exun-blue);
+    color:white;
+    cursor:default;
+}
+.order-form {
+    margin-top:5vh;
+}
+.fillable-stuff {
+    color: var(--text-grayer);
+    display:flex;
+    flex-direction: column;
+}
+.fill-layer {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fillable-stuff label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+hr.dotted {
+    border: none;
+    border-top: 2px dotted var(--border-gray);
+    margin: 10px 0;
+}
+.fillable-stuff input[type="number"] {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: right;
+    color: var(--text-gray);
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+}
+.fillable-stuff input[type="number"]:focus {
+    outline: none;
+    border-color: var(--text-gray);
+}
+
+.fillable-stuff #market-price {
+    color: var(--text-gray);
+    font-weight: 500;
+}
+.bottom {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+}
+.est-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--exun-blue);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom:3vh;
+}
+.confirm-button {
+    background-color: var(--exun-blue);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    width:100%;
+    height:8vh;
+    border: none;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+.confirm-button:hover {
+    background-color: var(--exun-blue-hover);
+}
+.stock-history { padding: 8px; box-sizing: border-box; }
+#tv-chart { width: 100%; height: 420px; }

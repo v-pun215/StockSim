@@ -1,4 +1,3 @@
-
 const headingEl = document.querySelector('.home-card.status .heading');
 const timerEl = document.querySelector('.home-card.status .timer');
 const compStartEl = document.getElementById('comp-start');

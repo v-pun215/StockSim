@@ -60,8 +60,16 @@ func createTables() {
         impact REAL,
         published_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );`
+	adminActions := `
+    CREATE TABLE IF NOT EXISTS admin_actions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        stock_id TEXT,
+        action TEXT,
+        magnitude REAL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );`
 
-	for _, table := range []string{users, portfolio, transactions, news} {
+	for _, table := range []string{users, portfolio, transactions, news, adminActions} {
 		if _, err := db.Exec(table); err != nil {
 			log.Fatal("Failed to create table:", err)
 		}

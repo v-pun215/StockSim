@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSim 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="market.html">Market</a>
+            <a class="active" href="portfolio.html">Portfolio</a>
+            <a href="history.html">History</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="news.html">News</a>
+        </div>
+    </nav>
+
+    <div class="home">
+        <div class="top">
+            <h1>Portfolio</h1>
+            <hr style="margin-top:-5px;">
+        </div>
+        <div class="content">
+            <div class="home-card">
+                <h2>Capital</h2>
+                <hr>
+                <p class="cash">Current cash: <span id="current-cash">$250.00</span></p>
+                <p class="cash">Total Networth: <span id="current-networth">$250.00</span></p>
+                <div class="chart">
+                </div>
+            </div>
+            <div class="home-card">
+                <h2>Stats</h2>
+                <hr>
+                <p class="stats-text">Overall Total Gain/Loss: <span id="total-gain">+$41.48</span></p>
+                <p class="stats-text">Overall Percentage Change: <span id="total-percent-change">+0.04%</span></span></p>
+                <p class="stats-text">Portfolio Diversification: <span id="portfolio-div">3 unique stocks</span></p>
+                <hr class="dotted">
+                <p class="stats-text">Leaderboard position: <span id="leaderboard-position">3rd</span></p>
+            </div>
+        </div>
+        <div class="home-card owned-stocks">
+            <h2>Owned Stocks</h2>
+            <hr>
+            <table id="ownedStocksTable">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Shares</th>
+                        <th>Avg. Cost</th>
+                        <th>Current Price</th>
+                        <th>Current Value</th>
+                        <th>Total G/L</th>
+                        <th>% Change</th>
+                        <th>Daily G/L</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="8" class="text-center">No stocks owned.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="charts.js"></script>
+    <script src="portfolio.js"></script>
+</body>
+</html>
