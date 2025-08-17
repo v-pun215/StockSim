@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const container = document.querySelector('.symbol-bubbles');
   if (!container) return;
 
-  fetch('http://localhost:8080/api/stocks')
+  fetch('/api/stocks')
     .then(function (res) {
       if (!res.ok) throw new Error('Failed to fetch /api/stocks');
       return res.json();

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const API_NEWS = 'http://localhost:8080/api/news';
+    const API_NEWS = '/api/news';
 
     const containers = {
         technology: document.getElementById('tech-news'),

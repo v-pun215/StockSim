@@ -1,7 +1,7 @@
 (() => {
-	const TEAM_ENDPOINT = 'http://localhost:8080/api/teams/leaderboard'
-	const INDIV_ENDPOINT = 'http://localhost:8080/api/leaderboard'
-	const TEAMS_ENDPOINT = 'http://localhost:8080/api/teams'
+	const TEAM_ENDPOINT = '/api/teams/leaderboard'
+	const INDIV_ENDPOINT = '/api/leaderboard'
+	const TEAMS_ENDPOINT = '/api/teams'
 	const REFRESH_INTERVAL_MS = 30 * 1000
 
 	const fmtCurrency = (v) => {

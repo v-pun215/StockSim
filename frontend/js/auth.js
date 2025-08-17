@@ -1,5 +1,5 @@
 (function () {
-	const API_BASE = 'http://localhost:8080'
+	const API_BASE = ''
 	const MAX_USERNAME_LEN = 64
   const FETCH_CREDENTIALS = 'include'
 

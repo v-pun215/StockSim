@@ -1,7 +1,7 @@
 (function () {
-	const API_STOCKS = 'http://localhost:8080/api/stocks'
-	const API_HISTORY = 'http://localhost:8080/api/history'
-	const WS_URL = (location.protocol === 'https:' ? 'wss://' : 'ws://') + 'localhost:8080/ws/prices'
+	const API_STOCKS = '/api/stocks'
+	const API_HISTORY = '/api/history'
+	const WS_URL = (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/ws/prices'
 
 	function $ (sel) { return document.querySelector(sel) }
 	function byId (id) { return document.getElementById(id) }
