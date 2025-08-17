@@ -4,6 +4,7 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
 	"sync"
 	"time"
 )
@@ -61,8 +62,13 @@ func main() {
 
 	go priceTicker() // start price ticking
 
-	log.Println("Server listening on :8080")
-	log.Fatal(http.ListenAndServe(":8080", enableCORS(mux)))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	addr := ":" + port
+	log.Printf("Server listening on %s", addr)
+	log.Fatal(http.ListenAndServe(addr, enableCORS(mux)))
 }
 
 func enableCORS(next http.Handler) http.Handler {
