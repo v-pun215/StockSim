@@ -6,12 +6,13 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 )
 
-// this loads the config.json file, currently it has only start and end time for comp, more will be added
+// this loads the config.json file, currently it has only start and end time for comp
 func loadConfig() {
-	file, err := os.ReadFile("config.json")
+	file, err := os.ReadFile("data/config.json")
 	if err != nil {
 		log.Fatalf("Failed to read config.json: %v", err)
 	}
@@ -21,13 +22,36 @@ func loadConfig() {
 		log.Fatalf("Failed to parse config.json: %v", err)
 	}
 
+	loc, err := time.LoadLocation("Asia/Kolkata")
+	if err != nil {
+		loc = time.FixedZone("IST", 5*3600+30*60)
+	}
+
 	parseTime := func(value string) (time.Time, error) {
-		if t, err := time.Parse(time.RFC3339, value); err == nil {
-			return t, nil
+		v := strings.TrimSpace(value)
+		if v == "" {
+			return time.Time{}, fmt.Errorf("empty time value")
 		}
-		if t, err := time.Parse("01/02/06 15:04", value); err == nil {
-			return t, nil
+
+		layouts := []string{
+			"01/02/06 15:04",
+			"01/02/2006 15:04",
+			"2006-01-02 15:04",
+			"2006-01-02T15:04:05",
+			"2006-01-02T15:04:05Z07:00",
+			time.RFC3339,
 		}
+		// interesting sometimes its failing, adding fallbacks..
+		for _, layout := range layouts {
+			if t, err := time.ParseInLocation(layout, v, loc); err == nil {
+				return t, nil
+			}
+		}
+		if t, err := time.Parse(time.RFC3339, v); err == nil {
+
+			return t.In(loc), nil
+		}
+
 		return time.Time{}, fmt.Errorf("unsupported time format: %s", value)
 	}
 
@@ -79,17 +103,4 @@ func statusHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(resp)
-}
-
-// api endpoint that returns all stocks in json
-func stocksHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method == http.MethodOptions {
-		w.WriteHeader(http.StatusOK)
-		return
-	}
-
-	stocksLock.Lock()
-	defer stocksLock.Unlock()
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(stocks)
 }

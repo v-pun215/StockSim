@@ -10,9 +10,11 @@
     --border-gray: #dee2e6;
     --table-gray: #e9ecef;
     --button-bg: #E9ECEF;
+    --light-exun-blue: #4c8bf5;
     --green: #00b894;
     --darker-gray: #343a40;
     --even-row-bg: #f8f8f8;
+    --red: #d63031;
 }
 body {
     background-color:var(--bg-gray);
@@ -44,6 +46,47 @@ nav .links {
     display:flex;
     gap:1vh;
 }
+nav .nav-right {
+    right: 0;
+    display:flex;
+    gap:1vh;
+    position: absolute;
+    margin-right: 2vh;
+}
+
+nav .nav-right a {
+    color: var(--text-gray);
+    background-color: transparent;
+    text-transform: none;
+}
+nav .nav-right a:hover {
+    text-decoration: underline;
+    background-color: transparent;
+    transform:none;
+    box-shadow: none;
+}
+.nav-btn {
+    background-color: var(--button-bg);
+    color: var(--text-gray);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    letter-spacing: 0.5px;
+    font-weight: 520;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border:none;
+}
+
+.nav-btn:hover {
+    background-color: var(--hover-gray);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 
 nav a {
     background-color: var(--button-bg);
@@ -86,6 +129,102 @@ nav a.active:hover {
     margin-top:0px;
     font-size: 2rem;
     font-weight: 600;
+}
+.close-btn-div {
+    display: flex;
+    justify-content: flex-end;
+    top:0;
+    right:0;
+    margin: 10px;
+    position: absolute;
+}
+#close-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+}
+#username-display {
+    font-weight: 600;
+}
+.overlay {
+    position: fixed;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    display: none;
+}
+
+.account-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid var(--border-gray);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    width: 20%;
+    height: 20vh;
+    z-index: 1000;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.account-popup p {
+    font-size: 1.3rem;
+}
+
+#logout {
+    background-color: var(--button-bg);
+    color: var(--text-gray);
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    letter-spacing: 0.5px;
+    font-weight: 520;
+    font-size: 14px;
+    padding: 10px 20px;
+    border:none;
+    cursor: pointer;
+}
+
+#logout:hover {
+    color: var(--red);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#admin {
+    background-color: var(--button-bg);
+    color: var(--text-gray);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    letter-spacing: 0.5px;
+    font-weight: 520;
+    font-size: 14px;
+    padding: 10px 20px;
+    border:none;
+    margin-right:10px;
+    cursor: pointer;
+}
+#admin:hover {
+    color: var(--exun-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .countdown {
@@ -133,6 +272,27 @@ hr {
     border: none;
     border-top: 2px solid var(--border-gray);
 }
+.verti-layer {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-gray);
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    color: var(--text-gray);
+    margin-top: 10px;
+    flex: 1;
+    padding-bottom:20px;
+}
+
+.verti-layer h2 {
+        font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+    margin-top:7px;
+}
+
 .home-card {
     background-color: white;
     border-radius: 12px;
@@ -172,12 +332,17 @@ hr {
     border-radius: 12px;
     border: 1px solid var(--border-gray);
 }
-
+.market-status {
+    font-size: 1.2rem;
+    font-weight: 450;
+    margin-bottom: 10px;
+    color: var(--green);
+}
 .cash {
     font-size: 1.3rem;
     line-height: 1;
 }
-#total-gain, #total-percent-change, #portfolio-div, #leaderboard-position {
+#total-gain, #total-percent-change, #portfolio-div, #leaderboard-position, #team-id, #username, #team-name, #holdings-value {
     font-weight: 550;
 }
 
@@ -194,7 +359,7 @@ hr {
     font-weight: 550;
 }
 
-#ownedStocksTable, #transactionHistoryTable {
+#ownedStocksTable, #transactionHistoryTable, #leaderboardTable {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
@@ -202,31 +367,51 @@ hr {
     border-radius: 8px;
     overflow: hidden;
 }
+#OCLHTable {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    overflow: hidden;
+}
 
-#ownedStocksTable th, #ownedStocksTable td, #transactionHistoryTable th, #transactionHistoryTable td {
+#OCLHTable th, #OCLHTable td {
+    padding: 10px 12px;
+    text-align: center;
+}
+
+#OCLHTable th {
+    color: var(--darker-gray);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+#OCLHTable td {
+    color: var(--darker-gray);
+    font-size: 1em;
+}
+
+#ownedStocksTable th, #ownedStocksTable td, #transactionHistoryTable th, #transactionHistoryTable td, #leaderboardTable th, #leaderboardTable td {
     padding: 10px 12px;
     text-align: left;
     border-bottom: 1px solid var(--border-gray);
 }
 
-#ownedStocksTable th, #transactionHistoryTable th {
+#ownedStocksTable th, #transactionHistoryTable th, #leaderboardTable th {
     background-color: var(--table-gray);
     color: var(--darker-gray);
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.85em;
 }
-#ownedStocksTable td, #transactionHistoryTable td {
+#ownedStocksTable td, #transactionHistoryTable td, #leaderboardTable td {
     color: var(--darker-gray);
     font-size: 1em;
 }
 
-#ownedStocksTable tr:nth-child(even), #transactionHistoryTable tr:nth-child(even) {
+#ownedStocksTable tr:nth-child(even), #transactionHistoryTable tr:nth-child(even), #leaderboardTable tr:nth-child(even) {
     background-color: var(--even-row-bg);
 }
-
-
-
 
 .trade-stocks {
     background-color:white;
@@ -250,15 +435,56 @@ hr {
     color: var(--green)
 }
 .search-stocks {
-    width: 20%;
-
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
+.title {
+    display: flex;
+    align-items: center;
+    gap:10px;
+    padding:0;
+    margin-bottom:-20px;
+}
+.sector {
+    margin-top:2.5px;
+    color: var(--button-text);
+    border-radius: 50px;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 7px 10px;
+    border: 2px solid var(--border-gray);
+    cursor:default;
+    color: var(--text-grayer);
+}
+.news-website {
+    color: var(--text-grayer);
+    font-size: 0.9em;
+    margin-top:0;
+}
+.symbol-bubbles {
+    margin-left:10px;
+    display: flex;
+    gap:5px;
+    width:100%;
+}
+
+.symbol-bubble {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 7px 10px;
+    cursor:pointer;
+}
+
 .search-stocks input[type="text"] {
     border: 1px solid var(--border-gray);
     border-radius: 8px;
     padding: 10px;
     font-size: 1rem;
-    width: 100%;
+    width:20%;
     font-family: "Inter", sans-serif;
     box-shadow: none;
     transition: all 0.2s ease-in-out;
@@ -302,7 +528,7 @@ hr {
     color: var(--text-gray);
     margin-top: 10px;
     flex: 1;
-    height: 60vh;
+    min-height:45vh;
     position: relative;
 }
 .button-tabs {
@@ -321,10 +547,6 @@ hr {
     transition: all 0.2s ease-in-out;
     font-family: "Inter", sans-serif;
 }
-.buy-button, .sell-button:hover {
-    background-color: #DEE2E6;
-    color: var(--text-gray);
-}
 
 .buy-button {
     border-radius: 8px 0 0 8px;
@@ -337,8 +559,11 @@ hr {
     color:white;
     cursor:default;
 }
-.order-form {
+.order-form-buy {
     margin-top:5vh;
+}
+.order-form-sell {
+    margin-top: 5vh;
 }
 .fillable-stuff {
     color: var(--text-grayer);
@@ -378,7 +603,7 @@ hr.dotted {
     border-color: var(--text-gray);
 }
 
-.fillable-stuff #market-price {
+.fillable-stuff #market-price, #market-price2 {
     color: var(--text-gray);
     font-weight: 500;
 }
@@ -417,5 +642,287 @@ hr.dotted {
 .confirm-button:hover {
     background-color: var(--exun-blue-hover);
 }
-.stock-history { padding: 8px; box-sizing: border-box; }
-#tv-chart { width: 100%; height: 420px; }
+.stock-history {
+    padding: 8px;
+    box-sizing: border-box;
+}
+#tv-chart {
+    width: 100%;
+    height: 420px;
+}
+
+
+.overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.634);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display:none;
+}
+
+.admin-code-popup {
+    background-color: white;
+    padding: 20px 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.admin-code-popup h2 {
+    margin-bottom: 20px;
+    color: var(--text-gray);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.admin-code-popup a {
+    color: var(--table-grayer);
+    text-decoration: none;
+    text-align: left;
+    left:0;
+    top:0;
+    position: absolute;
+    margin: 15px;
+}
+.admin-code-popup a:hover {
+    text-decoration: underline;
+}
+
+#admin-secret-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-gray);
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#admin-secret-input:focus {
+    outline: none;
+    border-color: var(--text-gray);
+}
+
+#admin-secret-submit {
+    margin-top:20px;
+    background-color: var(--button-bg);
+    color: var(--text-gray);
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    letter-spacing: 0.5px;
+    font-weight: 520;
+    font-size: 14px;
+    padding: 10px 20px;
+    border:none;
+    cursor: pointer;
+}
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+}
+.admin-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.small-muted {
+    color: var(--text-grayer);
+    font-size: 0.9em;
+}
+.inline-row { 
+    display:flex; 
+    gap:8px; 
+    align-items:center; 
+    flex-wrap:wrap; 
+}
+.inline-row > * { 
+    flex: 1 1 auto; 
+}
+
+.form-row { 
+    margin-top: 8px;
+    display:flex;
+    flex-direction: column;
+}
+.form-row label { 
+    display:block; 
+    margin-bottom:6px; 
+    font-weight:600; 
+    font-size:13px; 
+}
+.form-row input[type="text"], .form-row input[type="number"], .form-row input[type="datetime-local"], .form-row select, .form-row textarea {
+    padding:8px;
+    border-radius:6px;
+    border:1px solid #ddd;
+    font-family: "Inter", sans-serif;
+}
+.btn { 
+    background-color: var(--button-bg);
+    color: var(--text-gray);
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: none;
+    letter-spacing: 0.5px;
+    font-weight: 520;
+    font-size: 14px;
+    padding: 10px 20px;
+    border:none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: var(--hover-gray);
+    transform: translateY(-2px);
+}
+.btn-primary { 
+    background: #2977F5; 
+    color:#fff; 
+}
+.btn-primary:hover { 
+    background: #1e66cb; 
+}
+.btn-danger { 
+    background: #b00020; 
+    color:#fff; 
+}
+.help { 
+    font-size:12px; 
+    color:#666; 
+    margin-top:6px; 
+}
+.status-msg { 
+    margin-top:10px; 
+    padding:8px; 
+    border-radius:6px; 
+    font-size:13px; 
+}
+.status-success { 
+    background:rgba(6,95,70,0.06); 
+    color:var(--green); 
+}
+.status-error { 
+    background:rgba(176,0,32,0.06); 
+    color:var(--red); 
+}
+.stocks-table { 
+    width:100%; 
+    border-collapse:collapse; 
+    margin-top:8px; 
+    font-size:13px; 
+}
+.stocks-table th, .stocks-table td { 
+    padding:8px 6px; 
+    border-bottom:1px solid #eee; 
+    text-align:left; 
+}
+.news-list { 
+    overflow:auto; 
+    margin-top:8px; 
+}
+.preview-list { 
+    max-height:160px; 
+    overflow:auto; 
+    background:#fafafa; 
+    padding:8px; 
+    border-radius:6px; 
+    border:1px solid #eee; 
+}
+
+#news-notifier-root {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 2147483647;
+    pointer-events: none;
+}
+.news-notifier-toast {
+  pointer-events: auto;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 220px;
+  max-width: 360px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(240,248,255,0.95), rgba(235,245,255,0.95));
+  color: #0b1220;
+  box-shadow: 0 6px 18px rgba(20,30,60,0.12);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  line-height: 1.15;
+  border: 1px solid rgba(100,140,200,0.12);
+  transform: translateY(-6px);
+  opacity: 0;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+.news-notifier-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.news-notifier-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.news-notifier-title {
+    font-weight: 600;
+    font-size: 13px;
+    margin: 0;
+    color: #04243a;
+}
+.news-notifier-sub {
+    font-size: 12px;
+    color: #22445a;
+    opacity: 0.9;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.news-notifier-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-left: 6px;
+}
+.news-notifier-btn {
+  border: none;
+  background: #e8f5ff;
+  color: #0b5aa7;
+  padding: 6px 8px;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: none;
+}
+.news-notifier-close {
+  background: transparent;
+  border: none;
+  color: #5b6b78;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 14px;
+}

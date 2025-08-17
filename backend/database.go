@@ -26,7 +26,17 @@ func createTables() {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         school_code TEXT UNIQUE NOT NULL,
         cash REAL DEFAULT 10000.0,
-        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        team_id INTEGER,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY(team_id) REFERENCES teams(id)
+    );`
+
+	teams := `
+    CREATE TABLE IF NOT EXISTS teams (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT UNIQUE NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+		capacity INTEGER DEFAULT 6
     );`
 
 	portfolio := `
@@ -52,14 +62,18 @@ func createTables() {
     );`
 
 	news := `
-    CREATE TABLE IF NOT EXISTS news (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        title TEXT,
-        content TEXT,
-        affected_stock TEXT,
-        impact REAL,
-        published_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );`
+	CREATE TABLE IF NOT EXISTS news (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		title TEXT,
+		content TEXT,
+		affected_stock TEXT,
+		affected_sector TEXT,
+		category TEXT,
+		source TEXT,
+		impact REAL,
+		published_at DATETIME DEFAULT CURRENT_TIMESTAMP
+	);`
+
 	adminActions := `
     CREATE TABLE IF NOT EXISTS admin_actions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -69,7 +83,7 @@ func createTables() {
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );`
 
-	for _, table := range []string{users, portfolio, transactions, news, adminActions} {
+	for _, table := range []string{teams, users, portfolio, transactions, news, adminActions} {
 		if _, err := db.Exec(table); err != nil {
 			log.Fatal("Failed to create table:", err)
 		}

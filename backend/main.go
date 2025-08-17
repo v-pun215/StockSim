@@ -6,15 +6,15 @@ import (
 	"net/http"
 	"sync"
 	"time"
-
-	"github.com/gorilla/websocket"
 )
 
+// crazy how this file started it all
 type Stock struct {
 	ID     string  `json:"id"`
 	Name   string  `json:"name"`
 	Price  float64 `json:"price"`
 	Change float64 `json:"change"`
+	Sector string  `json:"sector"`
 }
 
 type Config struct {
@@ -25,39 +25,41 @@ type Config struct {
 var (
 	stocks     []Stock
 	stocksLock sync.Mutex
-	clients    = make(map[*websocket.Conn]bool)
 	compStart  time.Time
 	compEnd    time.Time
-	upgrader   = websocket.Upgrader{
-		CheckOrigin: func(r *http.Request) bool { return true }, // i know this is not recommended :p
-	}
 )
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	loadConfig()
 	loadStocks()
-	initDB()
-	initTicks()
+	initDB()    // db
+	initTicks() // get the inital stock history chart for frontend
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/status", statusHandler)
+	mux.HandleFunc("/api/transactions", transactionsHandler)
 	mux.HandleFunc("/api/stocks", stocksHandler)
 	mux.HandleFunc("/ws/prices", pricesWSHandler)
 	mux.HandleFunc("/api/portfolio", portfolioHandler)
 	mux.HandleFunc("/api/trade", tradeHandler)
 	mux.HandleFunc("/api/auth/signup", signupHandler)
+	mux.HandleFunc("/api/auth/signout", signoutHandler)
 	mux.HandleFunc("/api/auth/me", meHandler)
 	mux.HandleFunc("/api/users", usersHandler)
 	mux.HandleFunc("/api/history", historyHandler)
-	mux.HandleFunc("/api/news", getNewsHandler)                        // GET
-	mux.HandleFunc("/api/admin/publish-news", publishNewsHandler)      // POST (admin)
-	mux.HandleFunc("/api/admin/stock-action", adminStockActionHandler) // POST (admin)
+	mux.HandleFunc("/api/news/sources", newsSourcesHandler)
+	mux.HandleFunc("/api/news", getNewsHandler)
+	mux.HandleFunc("/api/admin/publish-news", publishNewsHandler)
+	mux.HandleFunc("/api/admin/stock-action", adminStockActionHandler)
 	mux.HandleFunc("/api/leaderboard", leaderboardHandler)
+	mux.HandleFunc("/api/teams", teamsHandler)
+	mux.HandleFunc("/api/teams/leaderboard", teamLeaderboardHandler)
+	mux.HandleFunc("/api/teams/join", joinTeamHandler)
+	mux.HandleFunc("/api/teams/create", createTeamHandler)
+	mux.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("../frontend/")))) // serve frontend
 
-	mux.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("../frontend/"))))
-
-	go priceTicker()
+	go priceTicker() // start price ticking
 
 	log.Println("Server listening on :8080")
 	log.Fatal(http.ListenAndServe(":8080", enableCORS(mux)))

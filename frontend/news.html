@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSim 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="market.html">Market</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="history.html">History</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a class="active" href="news.html">News</a>
+        </div>
+		<div class="nav-right">
+            <a id="username-display-nav" href="#">SIGN IN</a>
+        </div>
+    </nav>
+
+    <div class="home">
+        <div class="top">
+            <h1>Latest News</h1>
+            <hr style="margin-top:-5px;">
+        </div>
+        <div class="content">
+            <div id="tech-news" class="verti-layer">
+                <h2>Technology</h2>
+                <div class="home-card">
+                    <h2>Heading</h2>
+                    <p class="news-website">newyorker.com</p>
+                    <hr>
+                    <p class="news-content">Content</p>
+                </div>
+            </div>
+            <div id="indust-news" class="verti-layer">
+                <h2>Industrial</h2>
+                <div class="home-card">
+                    <h2>Heading</h2>
+                    <p class="news-website">washingtonpost.com</p>
+                    <hr>
+                    <p class="news-content">Content</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div id="healthcare-news" class="verti-layer">
+                <h2>Healthcare</h2>
+                <div class="home-card">
+                    <h2>Heading</h2>
+                    <p class="news-website">cnbc.com</p>
+                    <hr>
+                    <p class="news-content">Content</p>
+                </div>
+            </div>
+            <div id="other-news" class="verti-layer">
+                <h2>Others</h2>
+                <div class="home-card">
+                    <h2>Heading</h2>
+                    <p class="news-website">bbc.com</p>
+                    <hr>
+                    <p class="news-content">Content</p>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+
+    <script src="js/auth.js"></script>
+    <script src="js/adminChecker.js"></script>
+    <script src="js/news.js"></script>
+</body>
+</html>

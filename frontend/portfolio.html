@@ -17,6 +17,9 @@
             <a href="leaderboard.html">Leaderboard</a>
             <a href="news.html">News</a>
         </div>
+		<div class="nav-right">
+            <a id="username-display-nav" href="#">SIGN IN</a>
+        </div>
     </nav>
 
     <div class="home">
@@ -27,20 +30,24 @@
         <div class="content">
             <div class="home-card">
                 <h2>Capital</h2>
-                <hr>
-                <p class="cash">Current cash: <span id="current-cash">$250.00</span></p>
-                <p class="cash">Total Networth: <span id="current-networth">$250.00</span></p>
+                    <hr>
+                    <p class="cash">Current cash: <span id="current-cash">__</span></p>
+                <p class="cash">Total Networth: <span id="current-networth">__</span></p>
                 <div class="chart">
                 </div>
             </div>
             <div class="home-card">
                 <h2>Stats</h2>
                 <hr>
-                <p class="stats-text">Overall Total Gain/Loss: <span id="total-gain">+$41.48</span></p>
-                <p class="stats-text">Overall Percentage Change: <span id="total-percent-change">+0.04%</span></span></p>
-                <p class="stats-text">Portfolio Diversification: <span id="portfolio-div">3 unique stocks</span></p>
+                <p class="stats-text">Holdings value: <span id="holdings-value">__</span></p>
+                <p class="stats-text">Overall Total Gain/Loss: <span id="total-gain">__</span></p>
+                <p class="stats-text">Overall Percentage Change: <span id="total-percent-change">__</span></p>
+                <p class="stats-text">Portfolio Diversification: <span id="portfolio-div">__</span></p>
                 <hr class="dotted">
-                <p class="stats-text">Leaderboard position: <span id="leaderboard-position">3rd</span></p>
+                <p class="stats-text">Username: <span id="username">N/A</span></p>
+                <p class="stats-text">Team Name: <span id="team-name">N/A</span></p>
+                <p class="stats-text">Team ID: <span id="team-id">N/A</span></p>
+                <p class="stats-text">Leaderboard position: <span id="leaderboard-position">N/A</span></p>
             </div>
         </div>
         <div class="home-card owned-stocks">
@@ -56,7 +63,6 @@
                         <th>Current Value</th>
                         <th>Total G/L</th>
                         <th>% Change</th>
-                        <th>Daily G/L</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -66,8 +72,10 @@
         </div>
     </div>
 
-
-    <script src="charts.js"></script>
-    <script src="portfolio.js"></script>
+    <script src="js/test.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/adminChecker.js"></script>
 </body>
 </html>

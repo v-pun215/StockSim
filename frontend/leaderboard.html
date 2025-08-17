@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockSim 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="market.html">Market</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="history.html">History</a>
+            <a class="active" href="leaderboard.html">Leaderboard</a>
+            <a href="news.html">News</a>
+        </div>
+		<div class="nav-right">
+            <a id="username-display-nav" href="#">SIGN IN</a>
+        </div>
+    </nav>
+
+    <div class="home">
+        <div class="top">
+            <h1>Leaderboard</h1>
+            <hr style="margin-top:-5px;">
+        </div>
+        <div class="content">
+            <div class="home-card">
+                <h2>Team Leaderboard</h2>
+                <hr>
+                <table id="leaderboardTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Team</th>
+                            <th>Top Member</th>
+                            <th>Net Worth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="6" class="text-center">No one here yet ¯\_(ツ)_/¯</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="home-card">
+                <h2>Individual Leaderboard</h2>
+                <hr>
+                <table id="leaderboardTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th>Team</th>
+                            <th>Net Worth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="6" class="text-center">No one here yet ¯\_(ツ)_/¯</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/leaderboard.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/adminChecker.js"></script>
+</body>
+</html>

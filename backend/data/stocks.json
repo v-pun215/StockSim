@@ -3,90 +3,105 @@
     "id": "APEX",
     "name": "Apex Technologies",
     "price": 244.04,
-    "change": 3.25
+    "change": 3.25,
+    "sector": "Technology"
   },
   {
     "id": "NOVA",
     "name": "Nova Energy Corp",
     "price": 92.91,
-    "change": -0.35
+    "change": -0.35,
+    "sector": "Energy"
   },
   {
     "id": "TITAN",
     "name": "Titan Industries",
     "price": 158.97,
-    "change": 0.88
+    "change": 0.88,
+    "sector": "Industrial"
   },
   {
     "id": "FLUX",
     "name": "Flux Dynamics",
     "price": 79.35,
-    "change": 0.27
+    "change": 0.27,
+    "sector": "Technology"
   },
   {
     "id": "ZEPH",
     "name": "Zephyr Airlines",
     "price": 144.93,
-    "change": 2.09
+    "change": 2.09,
+    "sector": "Transportation"
   },
   {
     "id": "QUBE",
     "name": "Quantum Cube Ltd",
     "price": 264.18,
-    "change": 2.27
+    "change": 2.27,
+    "sector": "Healthcare"
   },
   {
     "id": "VRTX",
     "name": "Vertex Pharmaceuticals",
     "price": 422.13,
-    "change": -8.33
+    "change": -8.33,
+    "sector": "Healthcare"
   },
   {
     "id": "BLZE",
     "name": "Blaze Gaming Corp",
     "price": 84.63,
-    "change": -1.58
+    "change": -1.58,
+    "sector": "Technology"
   },
   {
     "id": "CYPH",
     "name": "Cipher Security",
     "price": 183.55,
-    "change": 2.52
+    "change": 2.52,
+    "sector": "Technology"
   },
   {
     "id": "STRM",
-    "name": "Storm Media Group",
+    "name": "Storm Health Group",
     "price": 101.24,
-    "change": -0.07
+    "change": -0.07,
+    "sector": "Healthcare"
   },
   {
     "id": "ECHO",
     "name": "Echo Communications",
     "price": 207.75,
-    "change": 2.99
+    "change": 2.99,
+    "sector": "Technology"
   },
   {
     "id": "PRISM",
     "name": "Prism Optics Inc",
     "price": 328.87,
-    "change": -1.65
+    "change": -1.65,
+    "sector": "Healthcare"
   },
   {
     "id": "SHIFT",
     "name": "Shift Logistics",
     "price": 164.05,
-    "change": 1.22
+    "change": 1.22,
+    "sector": "Industrials"
   },
   {
     "id": "NEXUS",
-    "name": "Nexus Biotech",
+    "name": "Nexus Industries",
     "price": 278.38,
-    "change": 4.68
+    "change": 4.68,
+    "sector": "Industrial"
   },
   {
     "id": "SURGE",
     "name": "Surge Electric Co",
     "price": 136.53,
-    "change": 0.74
+    "change": 0.74,
+    "sector": "Technology"
   }
 ]

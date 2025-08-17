@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>God Mode - StockSim 2025</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+	<nav>
+		<div class="links">
+			<a href="index.html">Home</a>
+			<a href="market.html">Market</a>
+			<a href="portfolio.html">Portfolio</a>
+			<a href="history.html">History</a>
+			<a href="leaderboard.html">Leaderboard</a>
+			<a href="news.html">News</a>
+			<a class="active" href="admin.html">Admin</a>
+		</div>
+		<div class="nav-right">
+			<a id="username-display-nav" href="#">SIGN IN</a>
+		</div>
+	</nav>
+
+	<div class="home">
+		<h1>Admin Console</h1>
+		<p class="small-muted">Publish news, affect stock prices, and run admin actions. All admin requests include <code>X-Admin-Secret</code> header.</p>
+
+		<div class="admin-grid">
+			<div class="home-card">
+				<h2>Publish News</h2>
+				<hr />
+				<div class="form-row">
+					<label for="news-title">Title</label>
+					<input style="font-family:'Inter', sans-serif;" id="news-title" type="text" placeholder="News headline" />
+				</div>
+				<div class="form-row">
+					<label for="news-content">Content</label>
+					<textarea style="font-family:'Inter', sans-serif;" id="news-content" rows="4" placeholder="Full article content"></textarea>
+				</div>
+
+				<div class="form-row">
+					<label>Target</label>
+					<div class="inline-row">
+						<select id="news-target-type">
+							<option value="stock">Specific stock</option>
+							<option value="sector">Whole sector</option>
+						</select>
+
+						<select id="news-stock-select" style="min-width:160px;">
+							<option value="">Loading stocks...</option>
+						</select>
+
+						<select id="news-sector-select" style="display:none; min-width:160px;">
+							<option value="">Loading sectors...</option>
+						</select>
+					</div>
+					<div class="help">Pick target type; when <em>sector</em> is chosen, the article will affect every company in that sector.</div>
+				</div>
+
+				<div class="form-row">
+					<label for="news-impact">Impact (decimal, -0.40 to 0.40)</label>
+					<input id="news-impact" type="number" step="0.01" min="-0.4" max="0.4" value="0.0" />
+				</div>
+
+				<div class="form-row">
+					<label for="news-source">News source</label>
+					<select id="news-source">
+						<option value="">Loading sources...</option>
+					</select>
+					<div class="help">Source must be one of the approved sites.</div>
+				</div>
+
+				<div class="form-row">
+					<label>Preview affected stocks</label>
+					<div class="preview-list" id="news-preview">(select target to preview)</div>
+				</div>
+
+				<div style="margin-top:10px; display:flex; gap:8px;">
+					<button id="news-publish" class="btn btn-primary">Publish News</button>
+				</div>
+				<div id="news-status" style="margin-top:10px"></div>
+			</div>
+
+			<div class="home-card">
+				<h2>Stock Action (tank / spike)</h2>
+				<hr />
+				<div class="form-row">
+					<label for="action-stock">Stock</label>
+					<select id="action-stock">
+						<option>Loading stocks...</option>
+					</select>
+				</div>
+
+				<div class="form-row">
+					<label for="action-type">Action</label>
+					<select id="action-type">
+						<option value="tank">tank (decrease)</option>
+						<option value="spike">spike (increase)</option>
+					</select>
+				</div>
+
+				<div class="form-row">
+					<label for="action-magnitude">Magnitude (0.00 - 0.40)</label>
+					<input id="action-magnitude" type="number" step="0.01" min="0" max="0.4" value="0.0" />
+					<div class="help">E.g. 0.5 = 50% (server may clamp). Recommended ≤ 0.4 for safety.</div>
+				</div>
+
+				<div style="margin-top:10px; display:flex; gap:8px;">
+					<button id="action-run" class="btn btn-primary">Run action</button>
+					<button id="action-run-preview" class="btn">Preview impact</button>
+				</div>
+				<div id="action-status" style="margin-top:10px"></div>
+			</div>
+			<div class="home-card"  style="grid-column: 1 / -1;">
+				<h2>Manage Competition</h2>
+				<hr>
+				<div class="form-row">
+					<label for="max-participants">Max participants per team</label>
+					<input style="max-width:15%;" id="max-participants" type="number" min="1" placeholder="Enter a number..." />
+				</div>
+				<button style="margin-top:10px;" class="btn btn-primary" id="comp-update">Save</button>
+				<div id="competition-status" style="margin-top:10px"></div>
+			</div>
+			<div class="home-card">
+				<h2>Stocks</h2>
+				<hr>
+				<table class="stocks-table" id="stocks-table">
+					<thead>
+						<tr><th>Symbol</th><th>Name</th><th>Price</th><th>Change</th><th>Sector</th></tr>
+					</thead>
+					<tbody>
+						<tr><td colspan="5" class="text-center">Loading stocks…</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="home-card">
+				<h2 style="margin-top:16px">Recent News</h2>
+				<hr>
+				<div class="news-list" id="news-list">
+					<p class="small-muted">Loading news…</p>
+				</div>
+			</div>
+		</div>
+
+		<div style="margin-top:18px;">
+			<button id="logout-admin" class="btn">Clear secret / lock</button>
+		</div>
+	</div>
+	<div class="overlay2" id="admin-overlay">
+
+		<div class="admin-code-popup">
+			<a href="index.html">← Back</a>
+			<h2>Enter Admin Secret</h2>
+			<p class="small-muted">Provide the admin secret to unlock administrative functions. Secret is kept in-memory only (session).</p>
+			<input id="admin-secret-input" type="password" placeholder="Admin secret" style="width:100%;padding:8px;border-radius:6px;border:1px solid #ddd;" />
+			<div style="margin-top:10px; display:flex; gap:8px;">
+				<button id="admin-secret-submit" class="btn btn-primary">Continue</button>
+			</div>
+			<div id="admin-secret-msg" style="margin-top:10px"></div>
+		</div>
+	</div>
+	<script src="js/auth.js"></script>
+	<script src="js/admin.js"></script>
+</body>
+</html>
