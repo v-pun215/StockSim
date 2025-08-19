@@ -13,6 +13,3 @@ Run ```setup.sh```, then run ```start.sh```.
 
 ## Admin Secret
 The secret is ```secret123``` (not the hosted one, that's different)
-
-## Credits
-[ronan615/stock-sim](https://github.com/ronan615/stock-sim) for the ui (reverse engineered, not copied)
