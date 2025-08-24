@@ -1,8 +1,15 @@
 # StockSim
 A stock simulation for a competition.
 
-## How to start
-Run setup.sh, then run start.sh
+## Features:
+1. Realistic stock price ticking
+2. Admin dashboard
+3. Full portfolio with detailed chart
+
+and more!
+
+## Quickstart
+Run ```setup.sh```, then run ```start.sh```.
 
 ## Admin Secret
-The secret is ```secret123```
+The secret is ```secret123``` (not the hosted one, that's different)
