@@ -43,17 +43,19 @@
 	}
 
 	async function logout() {
-		const endpoints = ['/api/auth/signout', '/api/auth/logout', '/api/auth/sign_out']
-		for (const ep of endpoints) {
-			try {
-				const res = await fetch(API_BASE + ep, { method: 'POST', credentials: 'same-origin' })
-				if (res.ok) break
-			} catch (e) {}
+		const endpoint = '/api/auth/signout'
+		try {
+			const res = await fetch(API_BASE + endpoint, { method: 'POST', credentials: 'same-origin' })
+			if (!res.ok) log('logout failed', res.status)
+			else log('logged out via', endpoint)
+		} catch (e) {
+			log('logout error', e)
+		} finally {
+			try { localStorage.removeItem('stocksim_username') } catch (e) {}
+			window.CURRENT_USER = null
+			closeAccountPopup()
+			window.location.reload()
 		}
-		try { localStorage.removeItem('stocksim_username') } catch (e) {}
-		window.CURRENT_USER = null
-		closeAccountPopup()
-		window.location.reload()
 	}
 
 	function escapeHtml(s) {

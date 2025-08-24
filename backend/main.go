@@ -9,7 +9,6 @@ import (
 	"time"
 )
 
-// crazy how this file started it all
 type Stock struct {
 	ID     string  `json:"id"`
 	Name   string  `json:"name"`
